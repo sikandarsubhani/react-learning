@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whoisfreaks - #1 for Domain and IP Intelligence Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <!--<img src="html-css-basics/logo.svg" alt="WhoisFreaks Logo" width="40" height="40">-->
+         <img itemprop="logo" src="https://whoisfreaks.com/images/logo.svg?v=0.1" alt="whoisfreaks" class="logo" />
+        <a href="#home" class="brand-name"></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="#" class="signup-btn">Sign Up</a>
+        <a href="#" class="signin-btn">Sign In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <article class="hero-content">
+      <header class="hero-header">
+        <h1 class="hero-heading">
+          Unleash the Power of Data with Our Domain and IP Intelligence
+        </h1>
+      </header>
+      <p class="hero-text">
+        Elevate your cyber-security strategy with our domain and IP intelligence
+        services. Designed for analysts, researchers, and brand owners. Our
+        platform provides unparalleled insights and monitoring capabilities to
+        protect your digital assets. Stay ahead of threats, ensure brand
+        integrity, and make informed decisions with real-time data you can trust.
+        Our platform seamlessly integrates with existing systems, enhancing
+        workflow efficiency and effectiveness. We are committed to quality,
+        up-to-date information, and unparalleled support, continuously evolving to
+        stay ahead of industry trends.
+      </p><br>
+      <button class="card-button">Get Started</button>
+    </article>
+    
+    <article class="dataSecurity">
+      <iframe title="dataSecurity" src="https://whoisfreaks.com/images/index.svg?v=0.1" width="700" height="650" frameborder="0" class="IFRAME-0"></iframe>
+    </article>
+  </div>
+  <div class="score-nav">
+    <div class="div-score-data">
+      <span data-target="1986" class="span-score-data">1986</span>
+      Historical Data Since
+    </div>
+    <div class="div-score-data">
+      <span class="span-score-data">1507+</span>
+      TLDs
+    </div>
+    <div class="div-score-data">
+      <span class="span-score-data">682M+</span>
+      Domains Tracked
+    </div>
+    <div class="div-score-data">
+      <span class="span-score-data">2585M+</span>
+      WHOIS Records
+    </div>
+    <div class="div-score-data">
+      <span class="span-score-data">2045M+</span>
+      Host Names
+    </div>
+    <div class="div-score-data">
+      <span class="span-score-data">7122M+</span>
+      DNS Records
+    </div>
+  </div>
+
+<!-- WHOIS API Portfolio Section -->
+<section class="api-portfolio-section">
+  <div class="content-container">
+    <header class="section-header">
+      <h2 class="section-title">WHOIS Domains Data APIs Portfolio</h2>
+    </header>
+    <p class="section-description">
+      WhoisFreaks WHOIS APIs portfolio caters to the diverse needs of CyberSecurity Analysts, Business Researchers, and Brand Protection experts.
+    </p>
+  </div>
+</section>
+
+<!-- WHOIS API Cards Section -->
+<section class="card-section" id="api-card-section"></section>
+
+<script>
+  const apiData = [
+    { header: "Whois Lookup API", body: "Get the WHOIS records and ownership details of any domain name, like owner name, email address, country, creation, last updated, expiration, location of both registrar and domain in the JSON/XML format.", link: "#" },
+    { header: "Whois History API", body: "Our WHOIS history API provides millions of current and historical WHOIS domain data records. WhoisFreaks history API database is regularly updated with the latest registration of all domains on a daily basis.", link: "#" },
+    { header: "Reverse Whois API", body: "You can execute a broad search for a particular domain keyword, owner name, email, or company on our WHOIS data to discover domains owned by a company or person.", link: "#" },
+    { header: "Newly Registered Domains", body: "Download vast amounts of newly registered domains WHOIS files through our API which contains the ownership information of a domain, its contact details, and complete normalized WHOIS data records. It is updated on a daily basis.", link: "#" },
+    { header: "Expiring Domains", body: "Download vast amounts of expiring and expired domains WHOIS files through our API which contains the ownership information of a domain, its contact details, and complete normalized WHOIS data records. It is updated on a daily basis.", link: "#" },
+    { header: "Dropped/Deleted Domains", body: "Download vast amounts of recently dropped deleted domains WHOIS files through our API which contains the ownership information of a domain, its contact details, and complete normalized WHOIS data records. It is updated on a daily basis.", link: "#" }
+  ];
+
+  const apiSection = document.getElementById("api-card-section");
+
+  apiData.forEach(card => {
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "card";
+    cardDiv.innerHTML = `
+      <div class="card-header">${card.header}</div>
+      <div class="card-body">${card.body}</div>
+      <div class="card-button">
+                <a href="#">More Details</a>
+      </div
+    `;
+    apiSection.appendChild(cardDiv);
+  });
+</script>
+
+<!-- DNS Data APIs Portfolio Section -->
+<section class="api-portfolio-section">
+  <div class="content-container">
+    <header class="section-header">
+      <h2 class="section-title">DNS Data APIs Portfolio</h2>
+    </header>
+    <p class="section-description">
+      WhoisFreaks DNS APIs provide a comprehensive suite of tools designed to empower CyberSecurity Analysts, Business Researchers, and Brand Protection experts with detailed insights into domain name system (DNS) information.
+    </p>
+  </div>
+</section>
+
+<!-- DNS API Cards Section -->
+<section class="card-section" id="dns-card-section"></section>
+
+<script>
+  const dnsApiData = [
+    { title: "DNS Lookup API", description: "The DNS Lookup API swiftly retrieves current A, AAAA, MX, NS, SOA, SPF, TXT, and CNAME records directly from authoritative DNS servers, providing essential, up-to-date data for CyberSecurity Analysts, Business Researchers, and Brand Protection experts.", link: "#" },
+    { title: "DNS History API", description: "It provides access to historical DNS records, including A, AAAA, MX, NS, SOA, SPF, TXT, and CNAME, directly retrieved from our extensive database, offering valuable insights for CyberSecurity Analysts, Business Researchers, and Brand Protection experts.", link: "#" },
+    { title: "Reverse DNS API", description: "It allows you to retrieve DNS records by querying with values such as IP addresses, MX, or NS servers, providing access to historical data. It's essential for CyberSecurity Analysts, and Brand Protection experts seeking comprehensive DNS insights.", link: "#" },
+    { title: "Newly Registered Domains", description: "The Newly Registered Domains DNS API allows you to download a JSON file of recently registered domains. Access the latest DNS database file through the API or manually via our billing dashboard, providing essential data for your research and monitoring needs.", link: "#" }
+  ];
+
+  const dnsSection = document.getElementById("dns-card-section");
+
+  dnsApiData.forEach(api => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-header">${api.title}</div>
+      <div class="card-body">${api.description}</div>
+      <div class="card-button">
+                <a href="#">More Details</a>
+      </div
+    `;
+    dnsSection.appendChild(card);
+  });
+</script>
+
+<!-- WHOIS Database Section -->
+<section class="whois-database-section" id="db-card-section">
+  <section class="database-content">
+    <section class="database-header">
+      <div class="database-intro">
+        <header>
+          <h2 class="database-title">WHOIS Domains Database</h2>
+        </header>
+        <p class="database-description">
+          Over 4.5 Million domains are registered each month. Our WHOIS normalized database download provides you an evaluative domain information such as a domain owner name, registrant name, organization, email address, country, contact details, domain location, and many more. Custom WHOIS domains database is sorted by registrant specific whois domains data, country specific whois domains data, and email specific whois domains data.
+        </p>
+      </div>
+    </section>
+    
+    <!-- WHOIS Database Cards Section -->
+    <section class="cards-section">
+      <div class="cards-container" id="db-cards-container"></div>
+    </section>
+  </section>
+</section>
+
+<script>
+  const domainInfo = [
+    {
+      title: "Registrar Specific Domains",
+      description: "Registrar specific database provides you the complete WHOIS information of the domains that are registered with a specific registrar like GoDaddy, Namecheap, and so on.",
+      image: "https://whoisfreaks.com/images/index-img/registrar.webp?v=0.1",
+      details: "More Details"
+    },
+    {
+      title: "Country Specific Domains",
+      description: "Country specific database provides you the complete WHOIS information of the domains that belong to a specific country like USA, Canada, China, and so on.",
+      image: "https://whoisfreaks.com/images/index-img/country.webp?v=0.1",
+      details: "More Details"
+    },
+    {
+      title: "TLDs Specific Domains",
+      description: "TLDs specific database provides you the complete WHOIS information of the domains that are registered with a specific domain extension like com, io, net, and so on.",
+      image: "https://whoisfreaks.com/images/index-img/tld.webp?v=0.1",
+      details: "More Details"
+    }
+  ];
+
+  const dbCardsContainer = document.getElementById("db-cards-container");
+
+  domainInfo.forEach(api => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-header">${api.title}</div>
+      <div class="card-body">${api.description}</div>
+      <div class="card-image">
+        <img src="${api.image}" alt="${api.title}" height="120" width="120" loading="eager" />
+      </div>
+      <div class="card-button">
+        <a href="#">${api.details}</a>
+      </div>
+    `;
+    dbCardsContainer.appendChild(card);
+  });
+</script>
+</body>
+</html>
