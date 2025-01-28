@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM INTRO</title>
+  </head>
+  <body class="bg-color">
+    <h1 id="firstheading">DOM</h1>
+    <p >This is DOM INTRO</p>
+    <button class="colorchanger"> colorchanger</button><br><br><br>
+
+    <button class="eventtester">eventtester</button>
+    <button class="eventtester">eventtester</button>
+    <button class="eventtester">event</button>
+    <button class="eventtester">event</button>
+    <div class="parent"></div>
+    
+
+    <script>
+      document.querySelector('body').setAttribute('class','bg-color')
+      let bgc=document.getElementsByClassName('bg-color')
+      // bgc.style.backgroundColor='#ffff'
+      document.getElementById("firstheading").innerHTML="<h1>THIS IS DOM PRACTICE</h1>"
+      document.getElementById("firstheading").innerText='DOM PRACTICE'
+
+      //add event t color button to change background color to black when white and white when black
+      let colorchanger=document.querySelector('.colorchanger')
+      colorchanger.addEventListener('click',function(){
+        let color=document.querySelector('.bg-color').style.backgroundColor
+        if(color=='white'){
+          document.querySelector('.bg-color').style.backgroundColor='black'
+          document.querySelector('.bg-color').style.color='white'
+        }else{
+          document.querySelector('.bg-color').style.backgroundColor='white'
+          document.querySelector('.bg-color').style.color='black'
+
+        }
+      })
+
+      
+
+      
+
+
+      var buttonpress=document.querySelectorAll("button")
+      buttonpress.forEach(buttons => {
+        buttons.style.color='pink'
+        buttons.addEventListener('click',function(e){
+        buttons.setAttribute('id','testbutton')
+        buttons.style.backgroundColor='firebrick'
+        buttons.style.color='#fff'
+        alert("button clicked");
+        console.log(e.timeStamp);
+        console.log(e.target);
+        
+      });
+      });
+      addEventListener("keypress", event=>{
+        alert(`${event.key} is pressed`)
+      });
+
+      let days=['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']
+      //create div elemnt in parent div
+      let div=document.createElement('div')
+      days.forEach((day)=>{
+        let daydiv=document.createElement('div')
+        daydiv.className='day'
+        daydiv.textContent=day 
+        document.querySelector('.parent').appendChild(daydiv)
+        
+      })
+
+      // use setinterval functions to change the colors of buttons
+      // add set timeout function to change the color of buttons
+      
+      let colors=['red','blue','green','yellow','orange','purple','pink']
+      let i=0
+      setInterval(()=>{
+        document.querySelectorAll('button.eventtester').forEach(button=>{
+          button.style.transition='ease 0.5s'
+          button.style.backgroundColor=colors[i]
+        })
+        i++
+        if(i==colors.length){
+          i=0
+        }
+      },1500)
+
+      // add set timeout function to change the color of buttons
+      setTimeout(()=>{
+        document.querySelectorAll('button').forEach(button=>{
+          button.style.transition='ease 0.5s'
+          button.style.backgroundColor='black'
+        })
+      },5000)
+    </script>
+  </body>
+</html>

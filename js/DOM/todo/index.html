@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do app</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+  
+    <div class="navbar">
+        <div class="logo">Todo</div>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    <section class="hero" id="herosection"></section>
+
+    <div class="info-form" id="info-form">
+      <form id="userForm">
+        <input type="text" name="name" id="userName" placeholder="Name" required><br>
+        <input type="number" name="age" id="userAge" placeholder="Age" required><br>
+        <input type="text" name="school" id="userSchool" placeholder="School Name" required><br>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+    <section class="todo-section">
+      
+      <div class="todo-input">
+      <input class="txt-input" type="text" id="todoInput" placeholder="ADD TASK">
+      <button class="submit-btn" id="addTodoBtn">ADD</button>
+      </div>
+      <ul id="todoList" class="todo-list"></ul>
+    </section>
+</body>
+</html>

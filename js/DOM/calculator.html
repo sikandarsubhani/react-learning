@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .display {
+      width: 100%;
+      height: 50px;
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    .error {
+      border-color: #dc3545;
+      background-color: #fff3f3;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      height: 50px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button.clear {
+      background-color: #dc3545;
+    }
+    button.clear:hover {
+      background-color: #a71d2a;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display" id="display" readonly>
+    <div class="buttons">
+      <button data-value="7">7</button>
+      <button data-value="8">8</button>
+      <button data-value="9">9</button>
+      <button data-value="/">÷</button>
+      <button data-value="4">4</button>
+      <button data-value="5">5</button>
+      <button data-value="6">6</button>
+      <button data-value="*">×</button>
+      <button data-value="1">1</button>
+      <button data-value="2">2</button>
+      <button data-value="3">3</button>
+      <button data-value="-">−</button>
+      <button data-value="0">0</button>
+      <button data-value=".">.</button>
+      <button data-value="=">=</button>
+      <button data-value="+">+</button>
+      <button class="clear" data-value="clear">C</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.buttons button');
+
+    let currentInput = '';
+    let operator = null;
+    let firstOperand = null;
+    
+    function calculate() {
+        try {
+            if (firstOperand !== null && operator && currentInput) {
+                const second = parseFloat(currentInput);
+                let result;
+                
+                switch(operator) {
+                    case '+': result = firstOperand + second; break;
+                    case '-': result = firstOperand - second; break;
+                    case '*': result = firstOperand * second; break;
+                    case '/': 
+                        if (second === 0) throw new Error('Division by zero');
+                        result = firstOperand / second; 
+                        break;
+                }
+                
+                display.value = Number.isInteger(result) ? result : result.toFixed(8);
+                currentInput = result.toString();
+                firstOperand = null;
+                operator = null;
+            }
+        } catch (error) {
+            display.classList.add('error');
+            display.value = 'Error';
+            setTimeout(() => {
+                display.classList.remove('error');
+                clearCalculator();
+            }, 1500);
+        }
+    }
+
+    function clearCalculator() {
+        currentInput = '';
+        firstOperand = null;
+        operator = null;
+        display.value = '';
+    }
+
+    function handleInput(value) {
+        if (value === 'clear') {
+            clearCalculator();
+        } else if (value === '=') {
+            calculate();
+        } else if (['+', '-', '*', '/'].includes(value)) {
+            if (currentInput) {
+                firstOperand = parseFloat(currentInput);
+                operator = value;
+                currentInput = '';
+            }
+        } else if (value === '.') {
+            if (!currentInput.includes('.')) {
+                currentInput = currentInput || '0';
+                currentInput += value;
+                display.value = currentInput;
+            }
+        } else {
+            if (currentInput === '0') currentInput = '';
+            currentInput += value;
+            display.value = currentInput;
+        }
+    }
+
+    // Button clicks
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            handleInput(button.getAttribute('data-value'));
+        });
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+        if (/[0-9]/.test(key) || ['+', '-', '*', '/', '.'].includes(key)) {
+            event.preventDefault();
+            handleInput(key);
+        } else if (key === 'Enter') {
+            event.preventDefault();
+            handleInput('=');
+        } else if (key === 'Escape') {
+            event.preventDefault();
+            handleInput('clear');
+        }
+    });
+  </script>
+</body>
+</html>

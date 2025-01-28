@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <form id="userForm">
+            <h2>User Registration</h2>
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span class="format-hint">Format: example@example.com</span>
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" maxlength="12" placeholder="03XXXXXXXXX">
+                <span class="format-hint">Format: 03XX-XXXXXXX</span>
+                <span class="error" id="phoneError"></span>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="successMessage" class="success hidden">
+            <h3>Registration Successful!</h3>
+            <div id="previewData"></div>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
