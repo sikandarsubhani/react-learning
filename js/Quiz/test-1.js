@@ -180,17 +180,20 @@ else { console.log("Zero") }
 
 // b) Write a nested if-else statement to determine if a number num = 50 is between 1 and 100.
 let num4 = 50
-if (num4 >= 1 ) {
-  if (num4 <= 100) { console.log("Between 1 and 100") } }  
-else { console.log("Not between 1 and 100") }
+if (num4 >= 1 && num4 <= 100) {
+  console.log("Between 1 and 100")
+} else {
+  console.log("Not between 1 and 100")
+}
 
 // c) Create a program using a nested if-else to check if a person is eligible to vote based on age (age >= 18) and citizenship (citizen = true).
 let age2 = 18
 let citizen = true
-if (age2 >= 18){
-   if (citizen) { console.log("Eligible to vote") } }
-else { console.log("Not eligible to vote") }
-
+if (age2 >= 18 && citizen) {
+  console.log("Eligible to vote")
+} else {
+  console.log("Not eligible to vote")
+}
 
 // 15. Else if
 // a) Write a program using else if to print "Small", "Medium", or "Large" based on a number size = 25 (small: 1-10, medium: 11-20, large: 21+).
