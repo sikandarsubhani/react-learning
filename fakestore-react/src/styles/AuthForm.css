@@ -1,0 +1,127 @@
+.auth-box {
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.auth-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.auth-box .user-box {
+  position: relative;
+}
+
+.auth-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.auth-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.auth-box .user-box input:focus ~ label,
+.auth-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.auth-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+button {
+  margin-left: auto;
+  color: #412e2e;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4rem;
+}
+
+button:hover {
+  background-color: #ff4500;
+  transition: ease-in 0.2s;
+  transition: ease-out 0.2s;
+}
+
+/* .auth-box select {
+  padding: 12px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  background: #333;
+  color: #fff;
+  border-radius: 3rem;
+}
+
+.auth-box option {
+  border: none;
+  border-radius: 3rem;
+} */
+
+.auth-box .user-box select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  appearance: initial; /* Removes default dropdown arrow */
+  cursor: pointer;
+}
+
+.auth-box .user-box select:focus ~ label,
+.auth-box .user-box select:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+select option {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 10px;
+  border-radius: 3rem;
+}

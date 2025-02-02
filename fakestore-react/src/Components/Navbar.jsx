@@ -1,77 +1,99 @@
-import { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import { UIContext } from '../context/UIContext';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import './../styles/Navbar.css'
 
-const Navbar = () => {
-  const { currentUser, handleLogout } = useContext(AuthContext);
-  const { isSidebarOpen, toggleSidebar } = useContext(UIContext);
-  const [categories, setCategories] = useState([]);
+const Navbar = ({ user }) => {
+  const navigate = useNavigate()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser'); // Remove login status
+    navigate('/')
+    // localStorage.removeItem('userType'); // Optionally remove user type if stored
+    // Add any additional logout logic if needed
+  };
+  // const userType = localStorage.getItem(`${user.userType}`); // Retrieve user type from localStorage
+  const isLoggedIn = localStorage.getItem('loggedInUser'); // Check if user is logged in
 
-  useEffect(() => {
-    // Fetch categories from API or local data
-    const fetchCategories = async () => {
-      const response = await fetch('https://fakestoreapi.com/products/categories');
-      const data = await response.json();
-      setCategories(data);
-    };
-    fetchCategories();
-  }, []);
+  const handleToggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+
+
 
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        <Link to="/" className="logo">FakeStore</Link>
+    <nav>
+      <div className="logo">
+        <Link to="/"><img src="src\assets\fakestore.png" alt="Fakestore" /></Link>
       </div>
-      <div className="navbar-center">
+      <div className="center-links">
         <Link to="/">Home</Link>
         <Link to="/cart">Cart</Link>
-        <div className="dropdown">
-          <button className="dropbtn">Category</button>
-          <div className="dropdown-content">
-            {categories.map(category => (
-              <Link key={category} to={`/category/${category}`}>{category}</Link>
-            ))}
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Category</a>
+          <div class="dropdown-content">
+            <a href="#">Mens</a>
+            <a href="#">Women</a>
+            <a href="#">Child</a>
+            <a href="#">jewelery</a>
           </div>
-        </div>
+        </li>
+
+
       </div>
-      <div className="navbar-right">
-        {currentUser ? (
-          <div>
-            <span className="user-role">{currentUser.role}</span>
+      <div className="right-links">
+        {isLoggedIn ? (
+          <>
+            {/* <span>{userType}</span> */}
             <button onClick={handleLogout}>Logout</button>
-          </div>
+          </>
         ) : (
-          <Link to="/login">Login/Signup</Link>
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+          </>
         )}
       </div>
-      <div className="hamburger-menu" onClick={toggleSidebar}>
-        &#9776;
-      </div>
-      {isSidebarOpen && (
-        <div className="sidebar">
-          <Link to="/" onClick={toggleSidebar}>Home</Link>
-          <Link to="/cart" onClick={toggleSidebar}>Cart</Link>
-          {categories.map(category => (
-            <Link key={category} to={`/category/${category}`} onClick={toggleSidebar}>{category}</Link>
-          ))}
-          {currentUser ? (
-            <div>
-              <span className="user-role">{currentUser.role}</span>
-              <button onClick={() => { handleLogout(); toggleSidebar(); }}>Logout</button>
-            </div>
-          ) : (
-            <Link to="/login" onClick={toggleSidebar}>Login/Signup</Link>
-          )}
-        </div>
-      )}
+      <span className="material-symbols-outlined" onClick={handleToggleSidebar}>
+      {isSidebarOpen ? "close" : "menu"}
+    </span>
+    
+    {isSidebarOpen && (
+  <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+    <ul>
+      <li>
+      <span className="material-symbols-outlined">home</span>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+      <span className="material-symbols-outlined">shopping_cart</span>
+        <Link to="/cart">Cart</Link>
+      </li>
+      <li>
+      
+        {isLoggedIn ? (
+          <div>
+          <span className="material-symbols-outlined">logout</span>
+          <button onClick={handleLogout}>Logout</button>
+          </div>
+        ) : (
+          <div>
+          <li>
+          <span className="material-symbols-outlined">login</span>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+          <span className="material-symbols-outlined">person</span>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          </div>
+        )}
+      </li>
+    </ul>
+  </div>
+)}
     </nav>
   );
-};
-
-Navbar.propTypes = {
-  setCurrentUser: PropTypes.func,
 };
 
 export default Navbar;

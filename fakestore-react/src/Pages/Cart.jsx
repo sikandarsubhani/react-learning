@@ -1,34 +1,64 @@
-import { useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import { AuthContext } from '../context/AuthContext';
-import CartItem from '../components/CartItem';
-import AuthModal from '../components/AuthModal';
+import { useCart } from './../Context/CartContext';
+import './../styles/Cart.css'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
-  const { currentUser } = useContext(AuthContext);
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  const { cartItems, removeFromCart } = useCart();
+  let quantity = 1;
+  const navigate = useNavigate();
 
-  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-
+  const currentUser = JSON.parse(localStorage.getItem('loggedInUser'));
   if (!currentUser) {
-    return showLoginModal && <AuthModal onClose={() => setShowLoginModal(false)} />;
+    navigate("/login")
   }
 
+
+  // Calculate total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * quantity, 0);
+
   return (
-    <div className="cart">
-      <h1>Cart</h1>
-      {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+    <div className='cart-container'>
+      <h1>Your Cart</h1>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
       ) : (
-        <div className="cart-items">
-          {cart.map(item => (
-            <CartItem key={item.id} item={item} />
-          ))}
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartItems.map((item) => (
+              <tr key={item.id}>
+                <td><img src={item.image} alt={item.title} style={{ width: '50px' }} /></td>
+                <td>{item.title}</td>
+                <td>${item.price}</td>
+                <td>
+                  <button onClick={() => quantity > 1 && quantity--}>-</button>
+                  {quantity}
+                  <button onClick={() => quantity++}>+</button>
+                </td>
+                <td>${(item.price * quantity).toFixed(2)}</td>
+                <td>
+                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {cartItems.length > 0 && (
+        <div className="cart-total">
+          <h3>Total: ${totalPrice.toFixed(2)}</h3>
         </div>
       )}
-      <h2>Total: ${totalPrice.toFixed(2)}</h2>
-      <button className="checkout" disabled={!currentUser || currentUser.role !== 'buyer'}>Checkout</button>
     </div>
   );
 };

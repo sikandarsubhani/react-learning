@@ -1,0 +1,6 @@
+.product-list {
+  display: flex; /* or display: grid; */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if there's not enough space */
+  justify-content: space-around; /* Adjust spacing as needed */
+  gap: 20px; /* Space between cards */
+}

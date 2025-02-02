@@ -1,26 +1,26 @@
-import './css/App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from './Pages/Home'
-import Cart from './Pages/Cart'
-import Navbar from './Components/Navbar'
-import Login from './Components/Login'
-import Register from './Components/Register'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import './styles/App.css'
+import LoginForm from './Components/LoginForm';
+import SignupForm from './Components/SignupForm';
+import Cart from './Pages/Cart';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState(null);
 
   return (
     <Router>
-      <Navbar />
-      <div className="main-content">
-        <Switch>
-          <Route path="/" element={<Home />} />
-          <Route path='/cart' element={<Cart />}></Route>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
-        </Switch>
-      </div>
+      <Navbar user={user} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
