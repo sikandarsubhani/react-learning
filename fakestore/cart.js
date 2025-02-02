@@ -10,7 +10,7 @@ function displayCart() {
     const products = JSON.parse(localStorage.getItem('products') || '[]');
     const tableBody = document.getElementById('cartTableBody');
     tableBody.innerHTML = '';
-    
+
     let total = 0;
 
     cartIds.forEach(productId => {

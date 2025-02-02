@@ -1,90 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-body{
+body {
   font-family: "Bruno Ace SC", serif;
   font-weight: 400;
   font-style: normal;
-  background-image: url('5.jpg') ;
+  background-image: url("5.jpg");
   opacity: 0.8;
   background-size: cover;
-  background-position:initial;
+  background-position: initial;
   background-repeat: no-repeat;
   z-index: -1;
 }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: url('6035425.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("6035425.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    .main-container {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-    }
+.main-container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
 
-    .form-container {
-      position: relative;
-    }
+.form-container {
+  position: relative;
+}
 
-    .form-section {
-      display: none;
-    }
+.form-section {
+  display: none;
+}
 
-    .form-section.active {
-      display: block;
-    }
+.form-section.active {
+  display: block;
+}
 
-    h2 {
-      margin-bottom: 20px;
-    }
+h2 {
+  margin-bottom: 20px;
+}
 
-    input, select {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-    }
+input,
+select {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    button:hover {
-      background-color: #45a049;
-    }
+button:hover {
+  background-color: #45a049;
+}
 
-    p {
-      margin-top: 15px;
-    }
+p {
+  margin-top: 15px;
+}
 
-    a {
-      color: #4CAF50;
-      text-decoration: none;
-    }
+a {
+  color: #4caf50;
+  text-decoration: none;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
-
+a:hover {
+  text-decoration: underline;
+}
 
 /* write media queries for mobile responsivenes */
 
@@ -103,7 +103,4 @@ body{
   /* input, select {
     width: auto;
   } */
-
-
 }
-

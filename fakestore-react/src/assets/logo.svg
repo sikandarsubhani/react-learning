@@ -1,0 +1,27 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1024 768"
+  height="768px"
+  width="1024px"
+  version="1.1"
+>
+  <defs>
+    <linearGradient id="grad1" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"></stop>
+    </linearGradient>
+    <linearGradient id="grad2" gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+      <stop offset="50%" stop-color="#cccccc" stop-opacity="1"></stop>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"></stop>
+    </linearGradient>
+  </defs>
+  <g class="logo">
+    <image x="272" y="144" width="480" height="480" href=""></image>
+    <g class="text">
+      <path class="text-primary" d="M 349.06288,-64.008 ..." />
+      <path class="text-secondary" d="M 361.61,-14.616 ..." />
+      <path class="text-accent" d="M 418.463,-25.344 ..." />
+    </g>
+  </g>
+</svg>

@@ -8,7 +8,7 @@ function displayProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
     const products = JSON.parse(localStorage.getItem('products') || '[]');
-    
+
     // Convert both IDs to strings for comparison
     const product = products.find(p => String(p.id) === String(productId));
 
@@ -17,8 +17,8 @@ function displayProductDetails() {
         return;
     }
 
-    const stars = "★".repeat(Math.round(product.rating?.rate || 0)) + 
-                 "☆".repeat(5 - Math.round(product.rating?.rate || 0));
+    const stars = "★".repeat(Math.round(product.rating?.rate || 0)) +
+        "☆".repeat(5 - Math.round(product.rating?.rate || 0));
 
     document.getElementById('productDetails').innerHTML = `
         <div class="product-details">
@@ -32,10 +32,10 @@ function displayProductDetails() {
                 </div>
                 <p class="category"><strong>Category:</strong> ${product.category}</p>
                 <p class="description">${product.description}</p>
-                ${currentUser.userType === 'buyer' ? 
-                    `<button onclick="addToCart('${product.id}')" class="add-to-cart-btn">Add to Cart</button>` : 
-                    ''
-                }
+                ${currentUser.userType === 'buyer' ?
+            `<button onclick="addToCart('${product.id}')" class="add-to-cart-btn">Add to Cart</button>` :
+            ''
+        }
             </div>
         </div>
     `;

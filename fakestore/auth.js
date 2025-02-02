@@ -1,6 +1,6 @@
-    function handleSignup(event) {
+function handleSignup(event) {
     event.preventDefault();
-    
+
     const name = document.getElementById('signupName').value;
     const email = document.getElementById('signupEmail').value;
     const password = document.getElementById('signupPassword').value;
@@ -8,7 +8,7 @@
 
     // Get existing users or initialize empty array
     const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
+
     // Check if user already exists
     if (users.find(user => user.email === email)) {
         alert('Email already registered!');
@@ -32,13 +32,13 @@
 
 function handleLogin(event) {
     event.preventDefault();
-    
+
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
     // Get users from localStorage
     const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
+
     // Find user
     const user = users.find(u => u.email === email && u.password === password);
 
