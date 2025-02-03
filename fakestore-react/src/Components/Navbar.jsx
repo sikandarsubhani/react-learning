@@ -181,13 +181,20 @@ const Navbar = ({ user }) => {
 
   return (
     <nav>
+
       <div className="logo">
-        <Link to="/"><img src="src/assets/fakestore.png" alt="Fakestore" /></Link>
+        {(!user || user.userType !== 'seller') ? (
+          <Link to="/"><img src="src/assets/fakestore.png" alt="Fakestore" /></Link>
+
+        ) : (
+          <Link to="/sellerdashboard"><img src="src/assets/fakestore.png" alt="Fakestore" /></Link>
+
+        )}
       </div>
 
       <div className="center-links">
         {/* Only show Home and Cart links if user is not a seller */}
-        {( !user || user.userType !== 'seller') && (
+        {(!user || user.userType !== 'seller') && (
           <>
             <Link to="/">Home</Link>
             <Link to="/cart">Cart</Link>
@@ -207,9 +214,9 @@ const Navbar = ({ user }) => {
       <div className="right-links">
         {user ? (
           <>
-          <span>Welcome, {user.name}!</span>
-          <button onClick={handleLogout}>Logout</button>
-        </>
+            <span>Welcome, {user.name}!</span>
+            <button onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <>
             <Link to="/login">Login</Link>
