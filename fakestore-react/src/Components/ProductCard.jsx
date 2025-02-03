@@ -8,6 +8,9 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
+  const userType = localStorage.getItem('userType'); // Assuming 'userType' is the key used to store the type
+  const isSeller = userType === 'seller'; // Check if the user type is 'seller'
+
   const handleAddToCart = () => {
     const isLoggedIn = localStorage.getItem('loggedInUser');
 
@@ -19,7 +22,6 @@ const ProductCard = ({ product }) => {
     addToCart(product);
     setAdded(true);
   };
-
   const handleRemoveFromCart = () => {
     removeFromCart(product.id);
     setAdded(false);

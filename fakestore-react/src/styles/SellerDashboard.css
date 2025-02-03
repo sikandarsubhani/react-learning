@@ -1,0 +1,131 @@
+/* src/styles/SellerDashboard.css */
+
+.add-button-container {
+    position: absolute;
+    top: 75px; /* Adjust as necessary */
+    right: 20px; /* Adjust as necessary */
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+.add-button-container .material-symbols-outlined {
+    font-size: 24px; /* Adjust size as necessary */
+    cursor: pointer;
+    /* color: #03e9f4 Change color as desired */
+}
+
+.add-button-container .material-symbols-outlined:hover {
+    color: #ff4500; /* Change color on hover */
+}
+.dashboard-container {
+    color: black;
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+  
+  .dashboard-container h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .dashboard-container .user-box {
+    position: relative;
+  }
+  
+  .dashboard-container .user-box input,
+  .dashboard-container .user-box textarea,
+  .dashboard-container .user-box select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .dashboard-container .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .dashboard-container .user-box input:focus ~ label,
+  .dashboard-container .user-box input:valid ~ label,
+  .dashboard-container .user-box select:focus ~ label,
+  .dashboard-container .user-box select:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #412e2e;
+    font-size: 12px;
+  }
+  
+  .dashboard-container button {
+    margin-left: auto;
+    color: #412e2e;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: ease-in 0.2s;
+  }
+  
+  .dashboard-container button:hover {
+    background-color: #ff4500;
+    transition: ease-out 0.2s;
+  } 
+
+
+  .products-container {
+    display: block;
+    margin: 50px;
+  }
+  
+  table {
+    margin: 30px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid #ddd;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  img {
+    width: 50px;
+  }
+  
+  button {
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-total {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  

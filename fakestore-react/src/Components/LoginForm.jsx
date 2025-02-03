@@ -17,11 +17,23 @@ const LoginForm = () => {
     if (user) {
       alert("Login successful!");
       localStorage.setItem("loggedInUser", JSON.stringify(user));
-      navigate("/");
+      // Navigate based on userType
+      if (user.userType === 'seller') {
+        navigate("/sellerdashboard");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        
+      }
     } else {
       alert("Invalid email or password!");
     }
-  };
+};
 
   return (
     <div class="auth-box">
@@ -29,11 +41,11 @@ const LoginForm = () => {
       <form onSubmit={handleLogin}>
         <label >Email</label>
         <div class="user-box">
-          <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+          <input required type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
         </div>
         <label htmlFor="">Password</label>
         <div class="user-box">
-          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+          <input required type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div class="user-box">
           <button type="submit" onClick={handleLogin}>Login</button>
